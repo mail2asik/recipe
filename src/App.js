@@ -10,11 +10,11 @@ import './App.css';
 const App = props => {
   return (
     <BrowserRouter>
-      <Header />
+      <Header user={props.user} />
 
         <main role="main" className="container">
           <div className="starter-template">
-            <AppRoutes />
+            <AppRoutes user={props.user} />
           </div>
         </main>
 
@@ -23,7 +23,9 @@ const App = props => {
   );
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+  user: state.auth.user
+});
 
 const mapDispatchToProps = dispatch => ({});
 

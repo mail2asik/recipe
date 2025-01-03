@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-const Header = ({}) => {
+const Header = ({ user }) => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
@@ -26,14 +26,24 @@ const Header = ({}) => {
           </Nav.Link>
         </Nav>
         <Nav>
-        <>
-          <Nav.Link>
-            Login
-          </Nav.Link>
-          <Nav.Link>
-            Register
-          </Nav.Link>
-        </>
+          {!user && (
+            <>
+              <Nav.Link as={Link} to="/auth/login">
+                Login
+              </Nav.Link>
+              <Nav.Link as={Link} to="/auth/register">
+                Register
+              </Nav.Link>
+            </>
+          )}
+
+          {user && (
+            <>
+              <Navbar.Text>
+                Welcome {user.name}! | <Link to="/auth/logout">Logout</Link>
+              </Navbar.Text>
+            </>
+          )}
         </Nav>
       </Navbar.Collapse>
       </Container>

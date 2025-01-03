@@ -2,10 +2,10 @@ import React from 'react';
 
 import recipesImg from '../../assets/images/recipes.jpg';
 
-const Services = () => {
+const Recipes = () => {
   return (
     <>
-      <h1>Services</h1>
+      <h1>Recipes</h1>
       <div className="row">
         <div className="col-md-6">
           <img src={recipesImg} className="img-fluid" />
@@ -28,4 +28,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Recipes;
