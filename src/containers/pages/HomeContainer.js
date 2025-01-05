@@ -2,16 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Home } from '../../components/pages';
+import { listRecentRecipesRequest } from '../../actions/recipeActions';
 
-const HomeContainer = () => {
-  return <Home />;
+const HomeContainer = props => {
+  return <Home {...props} />;
 };
 
-const mapStateToProps = state => ({
-  ...state
-});
+const mapStateToProps = state => ({});
 
-const mapDispatchToProps = props => ({});
+const mapDispatchToProps = props => ({
+  listRecentRecipesRequest : () => {
+    return listRecentRecipesRequest();
+  }
+});
 
 export default connect(
   mapStateToProps,

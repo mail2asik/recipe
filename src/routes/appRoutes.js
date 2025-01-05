@@ -4,7 +4,7 @@ import { Route, Routes, Navigate, useLocation } from 'react-router-dom';
 import {
   HomeContainer,
   AboutContainer,
-  RecipesContainer,
+  RecipeContainer,
   ContactContainer,
   PageNotFoundContainer
 } from '../containers/pages';
@@ -18,6 +18,13 @@ import {
   ForgotPasswordContainer,
   ResetPasswordContainer
 } from '../containers/auth';
+
+import {
+  AddRecipeContainer,
+  ViewRecipeContainer,
+  UpdateRecipeContainer,
+  ViewPublicRecipeContainer
+} from '../containers/recipes'
 
 const AppRoutes = ({ user }) => {
 
@@ -40,7 +47,7 @@ const AppRoutes = ({ user }) => {
       <Route exact path="/" element={<HomeContainer />} />
       <Route path="/home" element={<HomeContainer />} />
       <Route path="/about" element={<AboutContainer />} />
-      <Route path="/recipes" element={<RecipesContainer />} />
+      <Route path="/recipes" element={<RecipeContainer />} />
       <Route path="/contact" element={<ContactContainer />} />
 
       <Route path="/auth/register" element={
@@ -73,6 +80,28 @@ const AppRoutes = ({ user }) => {
       <Route path="/dashboard" element={
         <RequireAuth>
           <DashboardContainer user={user} />
+        </RequireAuth>
+      } />
+
+      <Route path="/add-recipe" element={
+        <RequireAuth>
+          <AddRecipeContainer />
+        </RequireAuth>
+      } />
+
+      <Route path="/view-recipe/:recipe_uid" element={
+        <RequireAuth>
+          <ViewRecipeContainer />
+        </RequireAuth>
+      } />
+
+      <Route path="/view/:recipe_uid" element={
+          <ViewPublicRecipeContainer />
+      } />
+
+      <Route path="/edit-recipe/:recipe_uid" element={
+        <RequireAuth>
+          <UpdateRecipeContainer />
         </RequireAuth>
       } />
 

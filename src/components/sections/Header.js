@@ -40,7 +40,7 @@ const Header = ({ user }) => {
           {user && (
             <>
               <Navbar.Text>
-                Welcome {user.name}! | <Link to="/auth/logout">Logout</Link>
+                Welcome {user.name}! | <Link to="/dashboard">Dashboard</Link> | <Link to="/auth/logout">Logout</Link>
               </Navbar.Text>
             </>
           )}

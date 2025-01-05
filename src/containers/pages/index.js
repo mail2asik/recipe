@@ -1,13 +1,13 @@
 import HomeContainer from './HomeContainer';
 import AboutContainer from './AboutContainer';
-import RecipesContainer from './RecipesContainer';
+import RecipeContainer from './RecipeContainer';
 import ContactContainer from './ContactContainer';
 import PageNotFoundContainer from './PageNotFoundContainer';
 
 export {
   HomeContainer,
   AboutContainer,
-  RecipesContainer,
+  RecipeContainer,
   ContactContainer,
   PageNotFoundContainer
 };

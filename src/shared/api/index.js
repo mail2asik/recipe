@@ -45,3 +45,70 @@ export const resetPasswordApi = params => {
     data: params
   });
 };
+
+export const storeRecipeApi = params => {
+  var bodyFormData = new FormData();
+  bodyFormData.append('category', params.category);
+  bodyFormData.append('title', params.title);
+  bodyFormData.append('image', params.image);
+  bodyFormData.append('ingredients', params.ingredients);
+  bodyFormData.append('short_desc', params.short_desc);
+  bodyFormData.append('long_desc', params.long_desc);
+ 
+  return config({
+    url: `/recipe`,
+    method: 'POST',
+    data: bodyFormData,
+    headers: { "Content-Type": "multipart/form-data" }
+  });
+};
+
+export const listRecipesApi = () => {
+  return config({
+    url: `/recipe`,
+    method: 'GET'
+  });
+};
+
+export const deleteRecipesApi = recipe_uid => {
+  return config({
+    url: `/recipe/${recipe_uid}`,
+    method: 'DELETE'
+  });
+};
+
+export const viewRecipeApi = recipe_uid => {
+  return config({
+    url: `/recipe/${recipe_uid}`,
+    method: 'GET'
+  });
+};
+
+export const updateRecipeApi = (params, recipe_uid) => {
+  return config({
+    url: `/recipe/${recipe_uid}`,
+    method: 'PUT',
+    data: params
+  });
+};
+
+export const listRecentRecipesApi = () => {
+  return config({
+    url: `/recipe/recent`,
+    method: 'GET'
+  });
+};
+
+export const listAllRecipesApi = () => {
+  return config({
+    url: `/recipe/all`,
+    method: 'GET'
+  });
+};
+
+export const viewPublicRecipeApi = recipe_uid => {
+  return config({
+    url: `/recipe/view/${recipe_uid}`,
+    method: 'GET'
+  });
+};
