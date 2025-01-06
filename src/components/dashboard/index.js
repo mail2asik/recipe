@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
+import { Alert, Spinner } from 'react-bootstrap';
 
-const Dashboard = ({listRecipesRequest, deleteRecipesRequest}) => {
+const Dashboard = ({listRecipesRequest, deleteRecipesRequest, dashboard_message}) => {
   const [showError, setShowError] = useState(false);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [recipes, setRecipes] = useState([]);
@@ -52,6 +52,10 @@ const Dashboard = ({listRecipesRequest, deleteRecipesRequest}) => {
               </div>
           </div>
           <div className="card-body">
+                {(dashboard_message && dashboard_message != '') && 
+                  <Alert variant="success">{dashboard_message}</Alert>
+                }
+
                 {!isDataLoaded && (
                   <div className="row h-100 justify-content-center align-items-center">
                     <Spinner animation="border" role="status">
@@ -126,7 +130,7 @@ const Dashboard = ({listRecipesRequest, deleteRecipesRequest}) => {
                                         {recipe.status === 'approved' && <span className="badge bg-primary text-uppercase">APPROVED</span> }
                                         {recipe.status === 'rejected' && <span className="badge bg-danger text-uppercase">REJECTED</span> }                                        
                                     </td>
-                                    <td className="text-center text-nowrap">{recipe.updated_at}</td>
+                                    <td className="text-center text-nowrap">{new Date(recipe.updated_at).toLocaleString()}</td>
                                     <td className="text-center text-nowrap">
                                         <Link to={`/view-recipe/${recipe.uid}`}>
                                           <button type="button" className="btn btn-sm btn-secondary"><i className="fa fa-eye"></i></button>

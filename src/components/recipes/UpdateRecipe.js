@@ -50,6 +50,15 @@ const UpdateRecipe = ({viewRecipeRequest, updateRecipeRequest}) => {
                     validationSchema={validationSchema}
                     onSubmit={(values, { setSubmitting }) => {
                         setShowError(false);
+
+                        const allowed = ['category', 'title', 'ingredients', 'short_desc', 'long_desc'];
+                        values = Object.keys(values)
+                        .filter(key => allowed.includes(key))
+                        .reduce((obj, key) => {
+                            obj[key] = values[key];
+                            return obj;
+                        }, {});
+
                         updateRecipeRequest(values, recipe_uid)
                         .then(
                             res => {

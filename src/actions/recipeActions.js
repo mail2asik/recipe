@@ -1,3 +1,7 @@
+import { 
+    DASHBOARD_MESSAGE
+  } from '../constants/actionTypes';
+
 import {
     storeRecipeApi,
     listRecipesApi,
@@ -8,6 +12,14 @@ import {
     listAllRecipesApi,
     viewPublicRecipeApi
 } from '../shared/api';
+
+export const dashboardMessageAction = dashboard_message => dispatch => {
+    dispatch({
+        type: DASHBOARD_MESSAGE,
+        dashboard_message
+    });
+};
+
 
 export const storeRecipeRequest = params => {
     return storeRecipeApi(params);

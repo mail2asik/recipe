@@ -6,7 +6,7 @@ const initialValues = {
   ingredients: '',
   short_desc: '',
   long_desc: '',
-  //image: ''
+  image: ''
 };
 
 const validationSchema = Yup.object().shape({
@@ -15,9 +15,9 @@ const validationSchema = Yup.object().shape({
   title: Yup.string()
     .required('Please enter title')
     .min(10, 'Please enter at least 10 characters'),
-  //image: Yup.string()
-   // .required('Please upload a photo')
-   // .min(1, 'Please select at least 1 photo'),
+   image: Yup.string()
+    .required('Please upload a photo')
+    .min(1, 'Please select at least 1 photo'),
   ingredients: Yup.string()
     .required('Please enter ingredients')
     .min(10, 'Please enter at least 10 characters'),

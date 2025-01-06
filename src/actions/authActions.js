@@ -1,4 +1,8 @@
-import { AUTH_LOGIN, AUTH_LOGOUT } from '../constants/actionTypes';
+import { 
+  AUTH_LOGIN, 
+  AUTH_LOGOUT
+} from '../constants/actionTypes';
+
 import {
   registerApi,
   activateApi,

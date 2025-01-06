@@ -92,12 +92,20 @@ const Home = ({listRecentRecipesRequest}) => {
                                     </Link>
                                 </h3>
                                 <p className="card-text">{recipe.short_desc}</p>
-                                <Link to={`/view/${recipe.uid}`} className="btn btn-primary">Read More</Link>
+                                <Link to={`/view/${recipe.uid}`} className="btn btn-secondary">Read More</Link>
                             </div>
                         </div>
                         </div>
 
                     )}
+
+                    {(isDataLoaded && recipes.length >= 1) && 
+                      <div className="row h-100 text-center">
+                          <Link to="/recipes">
+                            <button type="button" className="btn btn-primary">View All Recipes</button>
+                          </Link>
+                      </div>
+                    }
 
                   
               </div>

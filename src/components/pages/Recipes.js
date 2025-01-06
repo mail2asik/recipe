@@ -66,7 +66,7 @@ const Recipes = ({listAllRecipesRequest}) => {
                                 </Link>
                               </h3>
                               <p className="card-text">{recipe.short_desc}</p>
-                              <Link to={`/view/${recipe.uid}`} className="btn btn-primary">Read More</Link>
+                              <Link to={`/view/${recipe.uid}`} className="btn btn-secondary">Read More</Link>
                           </div>
                       </div>
                   </div>
