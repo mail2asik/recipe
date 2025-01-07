@@ -2,15 +2,14 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 
-import recipesImg from '../../assets/images/recipes.jpg';
-
 const Recipes = ({listAllRecipesRequest}) => {
     const [showError, setShowError] = useState(false);
     const [isDataLoaded, setIsDataLoaded] = useState(false);
     const [recipes, setRecipes] = useState([]);
+    const [searchKeywords, setSearchKeywords] = useState("");
 
     const loadAllRecipes = () => {
-        listAllRecipesRequest().then(
+        listAllRecipesRequest(searchKeywords).then(
         res => {
             setRecipes(res.data);
             setIsDataLoaded(true);
@@ -49,6 +48,19 @@ const Recipes = ({listAllRecipesRequest}) => {
                 {(isDataLoaded && showError) && 
                     <div className="row h-100 justify-content-center align-items-center">
                         {showError} 
+                    </div>
+                }
+
+                {(isDataLoaded && recipes.length > 0) && 
+                    <div className="row text-end">
+                        <div className="input-group">
+                            <input type="text"  className="form-control" placeholder="Search by keywords" value={searchKeywords} onChange={event => setSearchKeywords(event.target.value)} />
+                            <div className="input-group-append">
+                            <button className="btn btn-secondary" id="search_btn" type="button" onClick={() => loadAllRecipes()}>
+                                <i className="fa fa-search fa-sm"></i>
+                            </button>
+                            </div>
+                        </div>
                     </div>
                 }
 

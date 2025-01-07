@@ -45,8 +45,8 @@ export const listRecentRecipesRequest = () => {
     return listRecentRecipesApi();
 };
 
-export const listAllRecipesRequest = () => {
-    return listAllRecipesApi();
+export const listAllRecipesRequest = (searchKeywords) => {
+    return listAllRecipesApi(searchKeywords);
 };
 
 export const viewPublicRecipeRequest = recipe_uid => {

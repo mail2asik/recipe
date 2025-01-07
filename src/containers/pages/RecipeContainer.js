@@ -11,8 +11,8 @@ const RecipeContainer = props => {
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = props => ({
-  listAllRecipesRequest : () => {
-      return listAllRecipesRequest();
+  listAllRecipesRequest : (searchKeywords) => {
+      return listAllRecipesRequest(searchKeywords);
   }
 });
 

@@ -99,9 +99,9 @@ export const listRecentRecipesApi = () => {
   });
 };
 
-export const listAllRecipesApi = () => {
+export const listAllRecipesApi = (searchKeywords) => {
   return config({
-    url: `/recipe/all`,
+    url: `/recipe/all?search_by_keywords=` + searchKeywords,
     method: 'GET'
   });
 };
