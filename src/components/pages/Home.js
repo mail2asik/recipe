@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Spinner } from 'react-bootstrap';
 
 import styles from './pages.module.css';
-import homeImg from '../../assets/images/home.jpg';
+import homeImg from '../../assets/images/recipes.jpg';
 
 const Home = ({listRecentRecipesRequest}) => {
     const [showError, setShowError] = useState(false);
@@ -30,23 +30,12 @@ const Home = ({listRecentRecipesRequest}) => {
   return (
     <>
       <div className="row">
-        <h1>Home</h1>
-      </div>
-      <div className="row">
         <div className="col-md-6">
           <img src={homeImg} className="img-fluid img-thumbnail" />
         </div>
         <div className="col-md-6">
           <p className="lead">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.{' '}
-            <span className={styles.highlight}>
-              Lorem Ipsum has been the industry's standard
-            </span>{' '}
-            dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has
-            survived not only five centuries, but also the leap into electronic
-            typesetting, remaining essentially unchanged. 
+          Welcome to our Recipe Haven, where culinary dreams come to life! Dive into our treasure trove of delectable recipes, curated for home cooks and food enthusiasts alike. Whether you're a seasoned chef or just starting your culinary journey, you'll find inspiration in our diverse collection of dishes. From quick weekday meals to gourmet delights, we have something to tantalize every palate. Join our community, share your creations, and embark on a delicious adventure with us. Happy cooking! 🍳🥗🍰
           </p>
         </div>
       </div>
