@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Recipe Web Application Using React and its Libraries (Front End)
+
+This project details the front-end architecture for the Recipe Web Application, which is developed using React and its libraries (Single Page Application). The front end provides an interactive and responsive user experience, enabling seamless browsing, viewing, and managing of recipes.
+
+You can refer the API for this project [here](https://github.com/mail2asik/api-recipe).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Technical Implementation
+- **Redux** : Utilized Redux for state management.
+- **Router** : Employed for managing application routes.
+- **Axios** : Used for communicating with APIs.
+- **Formik** : Simplified validation and state management.
+- **Env** : Managed environment variables for different environments.
+- **Husky** : Implemented Git hooks for linting and formatting the codebase using Prettier.
 
-In the project directory, you can run:
+## Functionalities
 
-### `npm start`
+This application includes essential features for managing user-generated recipes:
+- Public users can view recipes posted by registered users.
+- Any user can register for an account.
+- Users must activate their accounts by verifying their email addresses.
+- Users can log in to the application.
+- Users can reset their passwords if forgotten.
+- Users can post recipes with details such as Category, Title, Image, Ingredients, Short Description, and Long Description.
+- User can edit and delete recipes
+- Admins will review and approve recipes.
+- Users will receive an email once their recipe is approved by an Admin.
+- The recipe status will change from "PENDING" to "APPROVED".
+- Approved recipes will be available to the public.
+- Admins can reject recipes if they are invalid or spam.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Note** : Admin interface is part of the [API](https://github.com/mail2asik/api-recipe) project and is not a single-page application. It does not consume API endpoints.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## The following API's are used
 
-### `npm test`
+**Authentication**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+POST      api.recipe.local/api/auth/register 
 
-### `npm run build`
+POST      api.recipe.local/api/auth/login 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+POST      api.recipe.local/api/auth/activate-by-url/{email}/{token} 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+POST      api.recipe.local/api/auth/logout 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+POST      api.recipe.local/api/auth/password-change
 
-### `npm run eject`
+POST      api.recipe.local/api/auth/password-reminder 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+POST      api.recipe.local/api/auth/password-reset
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Recipes**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+POST      api.recipe.local/api/recipe 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+GET|HEAD  api.recipe.local/api/recipe 
 
-## Learn More
+GET|HEAD  api.recipe.local/api/recipe/all 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+GET|HEAD  api.recipe.local/api/recipe/recent 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+GET|HEAD  api.recipe.local/api/recipe/view/{recipe_uid} 
 
-### Code Splitting
+GET|HEAD  api.recipe.local/api/recipe/{recipe_uid}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+PUT       api.recipe.local/api/recipe/{recipe_uid} 
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+DELETE    api.recipe.local/api/recipe/{recipe_uid}
