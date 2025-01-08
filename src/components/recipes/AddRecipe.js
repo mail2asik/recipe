@@ -29,7 +29,15 @@ const AddRecipe = ({storeRecipeRequest}) => {
                                 return navigate("/dashboard");
                             },
                             err => {
-                                setShowError(err.message_detail);
+                                if (typeof err.message_detail === 'object' && !Array.isArray(err.message_detail) && err.message_detail !== null) {
+                                    if (Object.hasOwn(err.message_detail, 'image')) {
+                                        setShowError(err.message_detail.image[0]);
+                                    }
+                                    
+                                } else {
+                                    setShowError(err.message_detail);
+                                }
+                                
                             }
                         )
                         .finally(() => {
