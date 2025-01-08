@@ -136,6 +136,7 @@ const UpdateRecipe = ({viewRecipeRequest, updateRecipeRequest}) => {
                             as="textarea"
                             name="ingredients"
                             placeholder="Enter Ingredients"
+                            style={{ "height" : "150px"}}
                             className={`form-control ${
                                 touched.ingredients && errors.ingredients ? 'is-invalid' : ''
                             }`}
@@ -154,6 +155,7 @@ const UpdateRecipe = ({viewRecipeRequest, updateRecipeRequest}) => {
                             as="textarea"
                             name="short_desc"
                             placeholder="Enter Short Description"
+                            style={{ "height" : "150px"}}
                             className={`form-control ${
                                 touched.short_desc && errors.short_desc ? 'is-invalid' : ''
                             }`}
@@ -172,6 +174,7 @@ const UpdateRecipe = ({viewRecipeRequest, updateRecipeRequest}) => {
                             as="textarea"
                             name="long_desc"
                             placeholder="Enter Long Description"
+                            style={{ "height" : "150px"}}
                             className={`form-control ${
                                 touched.long_desc && errors.long_desc ? 'is-invalid' : ''
                             }`}

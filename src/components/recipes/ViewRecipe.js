@@ -78,15 +78,15 @@ const ViewRecipe = ({viewRecipeRequest, user}) => {
                         </div>
                         <div className="mb-3 required">
                             <label className="form-label">Ingredients</label>
-                            <label className="form-control">{recipe.ingredients}</label>
+                            <label className="form-control" style={{"white-space":"pre-line"}}>{recipe.ingredients}</label>
                         </div>
                         <div className="mb-3 required">
                             <label className="form-label">Short Description</label>
-                            <label className="form-control">{recipe.short_desc}</label>
+                            <label className="form-control" style={{"white-space":"pre-line"}}>{recipe.short_desc}</label>
                         </div>
                         <div className="mb-3 required">
                             <label className="form-label">Long Description</label>
-                            <label className="form-control">{recipe.long_desc}</label>
+                            <label className="form-control" style={{"white-space":"pre-line"}}>{recipe.long_desc}</label>
                         </div>
                         </>
                     )}
