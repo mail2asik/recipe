@@ -67,3 +67,7 @@ GET|HEAD  api.recipe.local/api/recipe/{recipe_uid}
 PUT       api.recipe.local/api/recipe/{recipe_uid} 
 
 DELETE    api.recipe.local/api/recipe/{recipe_uid}
+
+## TODO
+- Improve recipe image validation to display an appropriate message if the uploaded image contains different MIME types.
+- Write test cases using Pest.
